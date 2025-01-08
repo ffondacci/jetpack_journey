@@ -5,14 +5,15 @@ import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import com.jetpackjourney.ui.screens.FeatureListScreen
+import com.jetpackjourney.ui.screens.ProductListScreen
 
 sealed class Screen(val route: String) {
-    object FeatureList: Screen("feature_list")
-    object ProductsList: Screen("products_list")
-    object ProductDetail: Screen("product_details/{productId}") {
-        fun createRoute(productId: String) = "product_details/$productId"
+    data object FeatureList: Screen("feature_list")
+    data object ProductsList: Screen("products_list")
+    data object ProductDetail: Screen("product_details/{productId}") {
+        fun createRoute(productId: Int) = "product_details/$productId"
     }
-    object DemoBlurVideo: Screen("demo_blur_video")
+    data object DemoBlurVideo: Screen("demo_blur_video")
 }
 
 @Composable
@@ -22,7 +23,7 @@ fun AppNavigation(navController: NavHostController) {
             FeatureListScreen(navController)
         }
         composable(Screen.ProductsList.route) {
-            // ProductListScreen(navController)
+             ProductListScreen(navController)
         }
         composable(Screen.DemoBlurVideo.route) {
             // DemoBlurVideoScreen(navController)
