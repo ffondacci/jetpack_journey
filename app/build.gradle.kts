@@ -58,6 +58,9 @@ dependencies {
     // Networking with Retrofit
     implementation(libs.retrofit) // Retrofit library for making HTTP requests
     implementation(libs.retrofit.converter.gson) // Gson converter for parsing JSON responses
+    implementation(libs.okhttp.logging.interceptor) // Logging Interceptor for OkHttp
+    implementation(libs.coil.compose) // Coil library for Jetpack Compose
+
 
     // Kotlin Coroutines
     implementation(libs.kotlinx.coroutines.android) // Coroutines support for Android
